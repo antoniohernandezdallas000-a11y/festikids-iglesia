@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iglesia de Cristo Ebenezer · FestiKids 2026 | 10, 11 y 12 de Julio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== MISMAS VARIABLES ===== */
+    :root {
+      --primary: #4FC3F7;
+      --primary-dark: #29B6F6;
+      --primary-light: #B3E5FC;
+      --white: #FFFFFF;
+      --yellow: #FFD54F;
+      --yellow-dark: #FFC107;
+      --red: #EF5350;
+      --red-dark: #E53935;
+      --text-dark: #263238;
+      --text-mid: #546E7A;
+      --text-light: #90A4AE;
+      --bg-light: #F5FAFF;
+      --shadow: 0 8px 32px rgba(79, 195, 247, 0.15);
+      --shadow-lg: 0 16px 48px rgba(79, 195, 247, 0.20);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-body: 'Inter', sans-serif;
+      --font-display: 'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 60px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+
+    .btn:hover::after { transform: translateX(0); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--text-dark);
+      box-shadow: 0 4px 16px rgba(79, 195, 247, 0.35);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 195, 247, 0.45);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--text-dark);
+      box-shadow: 0 4px 16px rgba(255, 213, 79, 0.40);
+    }
+    .btn-yellow:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 213, 79, 0.55);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      font-size: 1.15rem;
+      padding: 18px 40px;
+    }
+    .btn-whatsapp:hover {
+      background: #1DA851;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.50);
+    }
+
+    .btn-back {
+      background: transparent;
+      color: var(--text-mid);
+      border: 2px solid var(--text-light);
+    }
+    .btn-back:hover {
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      transform: translateX(-4px);
+    }
+
+    .btn-whatsapp-lg {
+      font-size: 1.4rem;
+      padding: 22px 52px;
+      border-radius: 70px;
+      gap: 14px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      max-width: 600px;
+      margin-top: 12px;
+    }
+
+    /* ===== FLOATING SHAPES ===== */
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.10;
+    }
+    .bg-shape-1 {
+      width: 500px; height: 500px;
+      background: var(--yellow);
+      top: -150px; left: -150px;
+      animation: float 22s ease-in-out infinite;
+    }
+    .bg-shape-2 {
+      width: 400px; height: 400px;
+      background: var(--primary-light);
+      bottom: -100px; right: -100px;
+      animation: float 18s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .fade-in-delay-1 { animation-delay: 0.15s; }
+    .fade-in-delay-2 { animation-delay: 0.25s; }
+    .fade-in-delay-3 { animation-delay: 0.35s; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(79, 195, 247, 0.10);
+      transition: var(--transition);
+    }
+
+    header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .logo-img {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-img { transform: scale(1.08); }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--text-dark);
+    }
+
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--yellow));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--white);
+      transform: rotate(-5deg);
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-icon { transform: rotate(0deg) scale(1.1); }
+
+    .hero-video-wrapper {
+      width: 100%;
+      max-width: 520px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      background: #f0f8ff;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video-wrapper video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background: #f0f8ff;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      pointer-events: none;
+    }
+
+    .hero-video-overlay span {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* ===== HERO DONAR ===== */
+    .hero-donar {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: linear-gradient(160deg, rgba(255, 213, 79, 0.06) 0%, var(--white) 50%, var(--bg-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-donar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--yellow), var(--primary), var(--red), var(--yellow));
+      background-size: 300% 100%;
+      animation: gradientMove 4s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 300% 0%; }
+    }
+
+    .hero-donar-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .donar-tag {
+      background: rgba(255, 213, 79, 0.20);
+      color: #F9A825;
+    }
+
+    .hero-donar h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-donar h1 .highlight-yellow { color: var(--yellow-dark); }
+    .hero-donar h1 .highlight-blue { color: var(--primary-dark); }
+
+    .hero-donar p {
+      font-size: 1.2rem;
+      color: var(--text-mid);
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    /* ===== DONATION CARD ===== */
+    .donation-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(79, 195, 247, 0.08);
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .donation-card::before {
+      content: '🎉';
+      position: absolute;
+      font-size: 10rem;
+      opacity: 0.03;
+      right: -30px;
+      bottom: -30px;
+      transform: rotate(-20deg);
+    }
+
+    .donation-card .card-emoji {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .donation-card h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .donation-card .card-desc {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .donation-card .whatsapp-number {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 12px;
+    }
+
+    .donation-card .whatsapp-number strong {
+      color: var(--text-dark);
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .how-tag { background: rgba(79, 195, 247, 0.12); color: var(--primary-dark); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step {
+      text-align: center;
+      padding: 32px 20px;
+    }
+
+    .step-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--yellow));
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .step h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+
+    .benefits-tag {
+      background: rgba(239, 83, 80, 0.10);
+      color: var(--red-dark);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .benefit-item {
+      background: var(--white);
+      padding: 28px 24px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: var(--transition);
+      border-left: 4px solid var(--primary);
+    }
+
+    .benefit-item:hover { transform: translateX(6px); box-shadow: var(--shadow-lg); }
+
+    .benefit-item .b-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .benefit-item h5 { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+    .benefit-item p { color: var(--text-mid); font-size: 0.9rem; margin-top: 4px; }
+
+    /* ===== CTA BOTTOM ===== */
+    .cta-bottom {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary-dark), #0288D1);
+      color: var(--white);
+    }
+
+    .cta-bottom h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .cta-bottom p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-bottom .btn-whatsapp {
+      background: var(--white);
+      color: #25D366;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .cta-bottom .btn-whatsapp:hover {
+      background: #f0f0f0;
+      color: #1DA851;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.20);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .footer-brand h5 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand p { font-size: 0.9rem; max-width: 300px; }
+
+    .footer-links h6 {
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .footer-links a {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 4px 0;
+      transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--primary); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-donar-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-donar h1 { font-size: 2.8rem; }
+      .hero-donar p { margin: 0 auto 28px; }
+      .donation-card { max-width: 100%; }
+      .hero-video-wrapper { max-width: 100%; }
+      .section-title { font-size: 2rem; }
+      .steps { grid-template-columns: 1fr; max-width: 400px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-donar h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.7rem; }
+      .donation-card { padding: 32px 20px; }
+      .btn-whatsapp-lg { font-size: 1.1rem; padding: 18px 32px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING SHAPES -->
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <img src="logo-iglesia.jpg" alt="Iglesia de Cristo Ebenezer" class="logo-img">
+          <span class="logo-text">Ebenezer · FestiKids</span>
+        </a>
+        <div style="display:flex; gap: 12px;">
+          <a href="index.html" class="btn btn-back" style="padding: 10px 24px; font-size: 0.9rem;">
+            ← Volver
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO DONAR ===== -->
+  <section class="hero-donar">
+    <div class="container">
+      <div class="hero-donar-content">
+        <div class="fade-in">
+          <span class="section-tag donar-tag">🎉 Iglesia de Cristo Ebenezer · FestiKids 2026</span>
+          <h1>
+            Hagamos del <span class="highlight-yellow">FestiKids</span><br>
+            el día más feliz de su <span class="highlight-blue">infancia</span>
+          </h1>
+          <p>
+            Queremos celebrar un día inolvidable para los niños de nuestra comunidad: 
+            juegos, música, comida, regalos y mucho amor. Cada aporte, sin importar 
+            su tamaño, se convierte en una sonrisa.
+          </p>
+          <p style="font-size: 1rem; color: var(--text-mid); margin-bottom: 0;">
+            <strong style="color: var(--red);">¿Eres patrocinador?</strong> 
+            Tu empresa puede aparecer en nuestros agradecimientos y redes.
+          </p>
+        </div>
+        <div class="fade-in fade-in-delay-1" style="display:flex; flex-direction:column; gap:24px;">
+          <div class="hero-video-wrapper">
+            <video autoplay muted loop playsinline poster="logo-iglesia.jpg">
+              <source src="WhatsApp Video 2026-05-19 at 10.12.17 PM.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay">
+              <span>🎬 FestiKids 2026 · 10, 11 y 12 de julio</span>
+            </div>
+          </div>
+          <div class="donation-card" style="margin:0;">
+            <span class="card-emoji">🎈</span>
+            <h3>💛 Únete al FestiKids</h3>
+            <p class="card-desc">
+              Escríbenos por WhatsApp y te contamos cómo puedes donar, 
+              patrocinar o ser voluntario en esta actividad especial para los niños.
+            </p>
+            <a href="https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids" 
+               target="_blank" rel="noopener noreferrer" 
+               class="btn btn-whatsapp btn-whatsapp-lg">
+              💬 Quiero formar parte
+            </a>
+            <p class="whatsapp-number">
+              📱 +58 412-8580894 · Respondemos en minutos
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works fade-in">
+    <div class="container">
+      <div class="how-header">
+        <span class="section-tag how-tag">📋 Así funciona</span>
+        <h2 class="section-title">Tres pasos para sumarte</h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-in fade-in-delay-1">
+          <div class="step-number">1</div>
+          <h4>📲 Escríbenos</h4>
+          <p>Haz clic en el botón de WhatsApp y dinos "Quiero formar parte del FestiKids".</p>
+        </div>
+        <div class="step fade-in fade-in-delay-2">
+          <div class="step-number">2</div>
+          <h4>🤝 Te orientamos</h4>
+          <p>Te explicamos las formas de donar, patrocinar o ser voluntario. Tú eliges cómo ayudar.</p>
+        </div>
+        <div class="step fade-in fade-in-delay-3">
+          <div class="step-number">3</div>
+          <h4>🎊 Celebramos juntos</h4>
+          <p>Tu aporte se convierte en sonrisas, juegos y alegría para los niños del FestiKids.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="benefits fade-in" id="beneficios">
+    <div class="container">
+      <div class="how-header">
+        <span class="section-tag benefits-tag">🌟 Tu aporte cuenta</span>
+        <h2 class="section-title">¿Qué logramos con tu ayuda?</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item fade-in fade-in-delay-1">
+          <span class="b-icon">🎪</span>
+          <div>
+            <h5>Juegos y actividades</h5>
+            <p>Inflables, pintacaritas, competencias y estaciones de juego para que los niños disfruten al máximo.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-1">
+          <span class="b-icon">🍿</span>
+          <div>
+            <h5>Comida y dulces</h5>
+            <p>Un festival no está completo sin algo rico. Ayúdanos a darles una merienda especial que recordarán.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-2">
+          <span class="b-icon">🎁</span>
+          <div>
+            <h5>Regalos y sorpresas</h5>
+            <p>Cada niño merece llevarse un detalle a casa. Con tu donación podemos entregar juguetes y útiles.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-2">
+          <span class="b-icon">👕</span>
+          <div>
+            <h5>Ropa y calzado</h5>
+            <p>Muchos niños asisten con lo puesto. Queremos entregarles mudas nuevas y zapatos.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-3">
+          <span class="b-icon">🎵</span>
+          <div>
+            <h5>Música y alegría</h5>
+            <p>Contrataremos sonido, animadores y un show infantil. Todo para que sea un día épico.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-3">
+          <span class="b-icon">💊</span>
+          <div>
+            <h5>Medicinas y salud</h5>
+            <p>Parte de los fondos también se destinan a continuar con la atención médica y medicinas que tanto necesitan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BOTTOM ===== -->
+  <section class="cta-bottom fade-in">
+    <div class="container">
+      <h2>🎈 ¿Listo para cambiar una infancia?</h2>
+      <p>
+        No importa si es una donación pequeña o un patrocinio completo. 
+        Lo que importa es que quieras ser parte. 
+        Un mensaje tuyo puede ser la chispa que encienda la alegría de un niño.
+      </p>
+      <a href="https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids" 
+         target="_blank" rel="noopener noreferrer" 
+         class="btn btn-whatsapp btn-whatsapp-lg">
+        💬 Quiero formar parte del FestiKids
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h5>✝️ FestiKids Iglesia</h5>
+          <p>Transformando vidas, una sonrisa a la vez. Únete a nuestra misión de amor y esperanza para los niños.</p>
+        </div>
+        <div class="footer-links">
+          <h6>Navegar</h6>
+          <a href="index.html">Inicio</a>
+          <a href="index.html#que-hacemos">Qué hacemos</a>
+          <a href="index.html#impacto">Impacto</a>
+          <a href="donar.html">Donar</a>
+        </div>
+        <div class="footer-links">
+          <h6>Contacto</h6>
+          <a href="https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids" target="_blank">WhatsApp</a>
+          <a href="mailto:info@festikids.org">Email</a>
+          <a href="#">📍 Encuéntranos</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 FestiKids Iglesia. Todos los derechos reservados. Hecho con ❤️ para los niños.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header shadow on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Intersection Observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      if (!el.style.animation) {
+        observer.observe(el);
+      }
+    });
+  </script>
+</body>
+</html>

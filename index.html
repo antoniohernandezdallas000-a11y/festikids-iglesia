@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iglesia de Cristo Ebenezer | FestiKids - Amor y Esperanza para los Niños</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== VARIABLES CSS ===== */
+    :root {
+      --primary: #4FC3F7;
+      --primary-dark: #29B6F6;
+      --primary-light: #B3E5FC;
+      --white: #FFFFFF;
+      --yellow: #FFD54F;
+      --yellow-dark: #FFC107;
+      --red: #EF5350;
+      --red-dark: #E53935;
+      --text-dark: #263238;
+      --text-mid: #546E7A;
+      --text-light: #90A4AE;
+      --bg-light: #F5FAFF;
+      --shadow: 0 8px 32px rgba(79, 195, 247, 0.15);
+      --shadow-lg: 0 16px 48px rgba(79, 195, 247, 0.20);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-body: 'Inter', sans-serif;
+      --font-display: 'Nunito', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 60px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+
+    .btn:hover::after { transform: translateX(0); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--text-dark);
+      box-shadow: 0 4px 16px rgba(79, 195, 247, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 195, 247, 0.45);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--text-dark);
+      box-shadow: 0 4px 16px rgba(255, 213, 79, 0.40);
+    }
+
+    .btn-yellow:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 213, 79, 0.55);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      font-size: 1.15rem;
+      padding: 18px 40px;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1DA851;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.50);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      max-width: 600px;
+      margin-top: 12px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.1s; }
+    .fade-in-delay-2 { animation-delay: 0.2s; }
+    .fade-in-delay-3 { animation-delay: 0.3s; }
+    .fade-in-delay-4 { animation-delay: 0.4s; }
+
+    /* ===== FLOATING BG SHAPES ===== */
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.12;
+    }
+
+    .bg-shape-1 {
+      width: 600px; height: 600px;
+      background: var(--primary-light);
+      top: -200px; right: -200px;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .bg-shape-2 {
+      width: 400px; height: 400px;
+      background: var(--yellow);
+      bottom: -100px; left: -100px;
+      animation: float 25s ease-in-out infinite reverse;
+    }
+
+    .bg-shape-3 {
+      width: 300px; height: 300px;
+      background: var(--red);
+      top: 50%; left: 50%;
+      opacity: 0.05;
+      animation: float 18s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(79, 195, 247, 0.10);
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .logo-img {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-img { transform: scale(1.08); }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--text-dark);
+    }
+
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--yellow));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--white);
+      transform: rotate(-5deg);
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-icon { transform: rotate(0deg) scale(1.1); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--text-dark); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--yellow);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      color: var(--text-dark) !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--yellow-dark) !important; }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .menu-toggle span {
+      width: 26px; height: 3px;
+      background: var(--text-dark);
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: linear-gradient(160deg, var(--bg-light) 0%, var(--white) 50%, rgba(255, 213, 79, 0.06) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--white), transparent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      background: rgba(79, 195, 247, 0.15);
+      color: var(--primary-dark);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .highlight-blue { color: var(--primary-dark); }
+    .hero h1 .highlight-yellow { color: var(--yellow-dark); }
+    .hero h1 .highlight-red { color: var(--red); }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-mid);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-video-wrapper {
+      width: 100%;
+      max-width: 520px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      background: #f0f8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video-wrapper video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background: #f0f8ff;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      pointer-events: none;
+    }
+
+    .hero-video-overlay span {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .hero-image-wrapper {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1/1;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--primary-light), rgba(255, 213, 79, 0.2));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-wrapper::before {
+      content: '❤️';
+      font-size: 8rem;
+      position: absolute;
+      opacity: 0.06;
+      right: -20px;
+      bottom: -20px;
+      transform: rotate(-15deg);
+    }
+
+    /* Floating kids icons */
+    .float-icon {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatIcon 4s ease-in-out infinite;
+    }
+
+    .float-icon-1 { top: 10%; left: 8%; animation-delay: 0s; }
+    .float-icon-2 { bottom: 15%; right: 10%; animation-delay: 1.5s; }
+    .float-icon-3 { top: 20%; right: 20%; animation-delay: 3s; }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    /* ===== MISIÓN SECTION ===== */
+    .mision {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .mision-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .mision-tag {
+      background: rgba(255, 213, 79, 0.20);
+      color: #F9A825;
+    }
+
+    .mision-text {
+      font-size: 1.2rem;
+      color: var(--text-mid);
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    /* ===== SERVICIOS (cards) ===== */
+    .servicios {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+
+    .servicios-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .servicios-tag {
+      background: rgba(239, 83, 80, 0.12);
+      color: var(--red-dark);
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .servicio-card {
+      background: var(--white);
+      padding: 36px 28px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(79, 195, 247, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .servicio-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--yellow), var(--red));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+
+    .servicio-card:hover::before { transform: scaleX(1); }
+
+    .servicio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .servicio-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 20px;
+    }
+
+    .icon-alimentos { background: rgba(79, 195, 247, 0.12); }
+    .icon-medica { background: rgba(255, 213, 79, 0.20); }
+    .icon-cabello { background: rgba(239, 83, 80, 0.10); }
+    .icon-medicina { background: rgba(79, 195, 247, 0.12); }
+
+    .servicio-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .servicio-card p {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+    }
+
+    /* ===== IMPACTO ===== */
+    .impacto {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary-dark), #0288D1);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impacto::before {
+      content: '❤️';
+      position: absolute;
+      font-size: 20rem;
+      opacity: 0.04;
+      right: -60px;
+      top: -60px;
+      transform: rotate(20deg);
+    }
+
+    .impacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .impacto-item h4 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3rem;
+      color: var(--yellow);
+    }
+
+    .impacto-item p {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-top: 8px;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final {
+      padding: 100px 0;
+      text-align: center;
+      background: var(--white);
+    }
+
+    .cta-final h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-final p {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .footer-brand h5 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      max-width: 300px;
+    }
+
+    .footer-links h6 {
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 4px 0;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--primary); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { margin: 0 auto 36px; }
+      .hero-buttons { justify-content: center; }
+      .hero-image-wrapper { max-width: 360px; margin: 0 auto; }
+      .hero-video-wrapper { max-width: 100%; }
+      .section-title { font-size: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 24px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        gap: 16px;
+      }
+      .hero h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.7rem; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .impacto-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING BG SHAPES -->
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape bg-shape-3"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <img src="logo-iglesia.jpg" alt="Iglesia de Cristo Ebenezer" class="logo-img">
+          <span class="logo-text">Ebenezer · FestiKids</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#que-hacemos">Qué hacemos</a></li>
+          <li><a href="#impacto">Impacto</a></li>
+          <li><a href="donar.html" class="nav-cta">🫶 Quiero donar</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="fade-in">
+          <span class="section-tag hero-tag">✝️ Iglesia de Cristo Ebenezer</span>
+          <h1>
+            Una <span class="highlight-blue">mano amiga</span> para<br>
+            cada <span class="highlight-yellow">niño</span> que lo<br>
+            <span class="highlight-red">necesita</span> ❤️
+          </h1>
+          <p>
+            Somos la <strong>Iglesia de Cristo Ebenezer</strong>, una comunidad que cree en el amor en acción. 
+            Todos los días llevamos alimentos, atención médica, cortes de cabello y medicinas 
+            a los niños de nuestra comunidad. Y queremos que tú también seas parte.
+          </p>
+          <p style="font-size: 1rem; color: var(--text-mid); margin-top: -24px;">
+            <strong style="color: var(--red);">🎉 FestiKids 2026:</strong> 10, 11 y 12 de julio
+          </p>
+          <div class="hero-buttons">
+            <a href="#que-hacemos" class="btn btn-primary">✨ Conoce nuestra labor</a>
+            <a href="donar.html" class="btn btn-yellow">🎉 Apoya el FestiKids</a>
+          </div>
+        </div>
+        <div class="hero-image fade-in fade-in-delay-2">
+          <div class="hero-video-wrapper">
+            <video autoplay muted loop playsinline poster="logo-iglesia.jpg">
+              <source src="WhatsApp Video 2026-05-16 at 6.30.29 PM.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay">
+              <span>🎬 Iglesia de Cristo Ebenezer · Amor en acción</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISIÓN ===== -->
+  <section class="mision fade-in" id="mision">
+    <div class="container">
+      <div class="mision-content">
+        <span class="section-tag mision-tag">💛 Nuestra razón de ser</span>
+        <h2 class="section-title">Creemos en un futuro donde ningún niño se quede atrás</h2>
+          <p class="mision-text">
+            En la <strong>Iglesia de Cristo Ebenezer</strong> no solo predicamos el amor — lo vivimos. 
+            Cada semana llegamos a decenas de niños con comida caliente, atención médica gratuita, 
+            cortes de cabello y medicinas. Todo esto es posible gracias a personas como tú, que deciden 
+            poner un granito de arena para cambiar una infancia.
+          </p>
+          <p class="mision-text" style="margin-top: 8px;">
+            <strong style="color: var(--primary-dark);">Y tenemos un sueño grande:</strong> 
+            celebrar el <strong>FestiKids</strong> los días <strong>10, 11 y 12 de julio de 2026</strong>, 
+            una actividad especial para los niños de la comunidad con juegos, comida, regalos y mucho más. 
+            ¿Nos ayudas a hacerlo realidad?
+          </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section class="servicios" id="que-hacemos">
+    <div class="container">
+      <div class="servicios-header fade-in">
+        <span class="section-tag servicios-tag">❤️ Lo que hacemos</span>
+        <h2 class="section-title">Nuestros brazos alcanzan donde más se necesita</h2>
+        <p class="section-subtitle" style="margin: 12px auto 0;">
+          Cuatro frentes de amor que transforman vidas todos los días
+        </p>
+      </div>
+      <div class="servicios-grid">
+        <div class="servicio-card fade-in fade-in-delay-1">
+          <div class="servicio-icon icon-alimentos">🍲</div>
+          <h3>Alimentos para todos</h3>
+          <p>Servimos comidas nutritivas a niños en situación de vulnerabilidad. Un plato caliente que cambia su día y su esperanza.</p>
+        </div>
+        <div class="servicio-card fade-in fade-in-delay-2">
+          <div class="servicio-icon icon-medica">🩺</div>
+          <h3>Atención médica</h3>
+          <p>Jornadas de salud con médicos voluntarios. Chequeos generales, pediatría y desparasitación completamente gratuitos.</p>
+        </div>
+        <div class="servicio-card fade-in fade-in-delay-3">
+          <div class="servicio-icon icon-cabello">✂️</div>
+          <h3>Cortes de cabello</h3>
+          <p>Porque la dignidad también se refleja en la apariencia. Cortes de cabello gratuitos para que los niños se sientan bien consigo mismos.</p>
+        </div>
+        <div class="servicio-card fade-in fade-in-delay-4">
+          <div class="servicio-icon icon-medicina">💊</div>
+          <h3>Medicina gratuita</h3>
+          <p>Entregamos medicamentos esenciales a familias que no pueden costearlos. Salud es un derecho, no un privilegio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPACTO ===== -->
+  <section class="impacto" id="impacto">
+    <div class="container">
+      <div class="impacto-grid">
+        <div class="impacto-item fade-in">
+          <h4>+200</h4>
+          <p>Niños atendidos cada mes</p>
+        </div>
+        <div class="impacto-item fade-in fade-in-delay-1">
+          <h4>+50</h4>
+          <p>Jornadas médicas realizadas</p>
+        </div>
+        <div class="impacto-item fade-in fade-in-delay-2">
+          <h4>+1,500</h4>
+          <p>Platos de comida servidos</p>
+        </div>
+        <div class="impacto-item fade-in fade-in-delay-3">
+          <h4>1</h4>
+          <p>Gran sueño: FestiKids 🎉</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final fade-in">
+    <div class="container">
+      <h2>🎉 Este año queremos hacer algo <span style="color: var(--red);">especial</span></h2>
+      <p>
+        El <strong>FestiKids 2026</strong> (10, 11 y 12 de julio) será el evento más grande para los niños 
+        de nuestra comunidad. Juegos, música, comida, regalos y mucho amor. Pero solos no podemos. 
+        Necesitamos patrocinadores y voluntarios. ¿Te sumas?
+      </p>
+      <div class="cta-buttons">
+        <a href="donar.html" class="btn btn-yellow">🎈 Quiero apoyar el FestiKids</a>
+        <a href="https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          💬 Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h5>✝️ Iglesia de Cristo Ebenezer</h5>
+          <p>Transformando vidas, una sonrisa a la vez. Únete a nuestra misión de amor y esperanza para los niños.</p>
+        </div>
+        <div class="footer-links">
+          <h6>Navegar</h6>
+          <a href="#inicio">Inicio</a>
+          <a href="#que-hacemos">Qué hacemos</a>
+          <a href="#impacto">Impacto</a>
+          <a href="donar.html">Donar</a>
+        </div>
+        <div class="footer-links">
+          <h6>Contacto</h6>
+          <a href="https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids" target="_blank">WhatsApp</a>
+          <a href="mailto:info@festikids.org">Email</a>
+          <a href="#">📍 Encuéntranos</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Iglesia de Cristo Ebenezer · FestiKids. Todos los derechos reservados. Hecho con ❤️ para los niños.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Header shadow on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Intersection Observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      if (!el.style.animation) {
+        observer.observe(el);
+      }
+    });
+  </script>
+</body>
+</html>

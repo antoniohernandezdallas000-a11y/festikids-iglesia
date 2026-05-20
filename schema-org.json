@@ -1,0 +1,67 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Church",
+      "@id": "https://www.festikids.org/#church",
+      "name": "Iglesia de Cristo Ebenezer",
+      "alternateName": "FestiKids Iglesia",
+      "description": "Iglesia que brinda alimentos, atención médica, cortes de cabello y medicinas a niños de la comunidad. Organiza el FestiKids cada año.",
+      "url": "https://www.festikids.org/",
+      "telephone": "+58 412-8580894",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+58-412-8580894",
+        "contactType": "WhatsApp donations",
+        "url": "https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Venezuela"
+      },
+      "knowsLanguage": "es"
+    },
+    {
+      "@type": "Event",
+      "@id": "https://www.festikids.org/#festikids-2026",
+      "name": "FestiKids 2026",
+      "description": "Festival infantil con juegos, comida, regalos, atención médica y cortes de cabello gratuito para niños de la comunidad.",
+      "startDate": "2026-07-10",
+      "endDate": "2026-07-12",
+      "location": {
+        "@type": "Place",
+        "name": "Iglesia de Cristo Ebenezer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "VE"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "description": "Donación voluntaria para patrocinar el evento",
+        "url": "https://www.festikids.org/donar.html",
+        "price": "0",
+        "priceCurrency": "VES"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Iglesia de Cristo Ebenezer",
+        "url": "https://www.festikids.org/"
+      },
+      "sponsor": {
+        "@type": "Organization",
+        "name": "Patrocinadores del FestiKids"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.festikids.org/#website",
+      "name": "Iglesia de Cristo Ebenezer - FestiKids",
+      "url": "https://www.festikids.org/",
+      "publisher": {
+        "@id": "https://www.festikids.org/#church"
+      },
+      "inLanguage": "es-VE"
+    }
+  ]
+}

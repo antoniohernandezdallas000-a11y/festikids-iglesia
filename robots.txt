@@ -1,0 +1,5 @@
+# robots.txt - Iglesia de Cristo Ebenezer · FestiKids
+User-agent: *
+Allow: /
+
+Sitemap: https://www.festikids.org/sitemap.xml
