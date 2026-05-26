@@ -571,6 +571,222 @@
       font-size: 0.95rem;
     }
 
+    /* ===== BOTÓN VER MÁS ===== */
+    .btn-ver-mas {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 24px;
+      border-radius: 40px;
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-ver-mas:hover {
+      background: var(--primary);
+      color: var(--text-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+    }
+
+    /* ===== CARRUSEL ===== */
+    .carrusel {
+      padding: 80px 0;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .carrusel-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .carrusel-tag {
+      background: rgba(79, 195, 247, 0.12);
+      color: var(--primary-dark);
+    }
+
+    .carrusel-track-wrapper {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .carrusel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 8px 4px;
+    }
+
+    .carrusel-track::-webkit-scrollbar { display: none; }
+
+    .carrusel-slide {
+      flex: 0 0 auto;
+      width: 280px;
+      height: 210px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .carrusel-slide:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .carrusel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carrusel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .carrusel-arrow:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    .carrusel-arrow-left { left: -18px; }
+    .carrusel-arrow-right { right: -18px; }
+
+    /* ===== MODAL / GALERÍA ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: var(--white);
+      font-size: 1.6rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: var(--red);
+      transform: rotate(90deg);
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .modal-nav:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: var(--white);
+    }
+
+    .modal-nav-prev { left: -70px; }
+    .modal-nav-next { right: -70px; }
+
+    .modal-counter {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .carrusel-slide { width: 220px; height: 165px; }
+      .carrusel-arrow { width: 36px; height: 36px; font-size: 1rem; }
+      .carrusel-arrow-left { left: -4px; }
+      .carrusel-arrow-right { right: -4px; }
+      .modal-nav { width: 40px; height: 40px; font-size: 1.1rem; }
+      .modal-nav-prev { left: -10px; }
+      .modal-nav-next { right: -10px; }
+      .modal-close { top: 10px; right: 10px; width: 40px; height: 40px; }
+    }
+
     /* ===== IMPACTO ===== */
     .impacto {
       padding: 100px 0;
@@ -735,6 +951,17 @@
   <div class="bg-shape bg-shape-2"></div>
   <div class="bg-shape bg-shape-3"></div>
 
+  <!-- ===== MODAL GALERÍA ===== -->
+  <div class="modal-overlay" id="modalGaleria" onclick="cerrarGaleriaFuera(event)">
+    <button class="modal-close" onclick="cerrarGaleria()">✕</button>
+    <button class="modal-nav modal-nav-prev" onclick="navegarGaleria(-1)">‹</button>
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="Galería FestiKids">
+    </div>
+    <button class="modal-nav modal-nav-next" onclick="navegarGaleria(1)">›</button>
+    <div class="modal-counter" id="modalCounter"></div>
+  </div>
+
   <!-- ===== HEADER ===== -->
   <header id="header">
     <div class="container">
@@ -831,22 +1058,44 @@
           <div class="servicio-icon icon-alimentos">🍲</div>
           <h3>Alimentos para todos</h3>
           <p>Servimos comidas nutritivas a niños en situación de vulnerabilidad. Un plato caliente que cambia su día y su esperanza.</p>
+          <button class="btn-ver-mas" onclick="abrirGaleria(0)">📸 Ver más</button>
         </div>
         <div class="servicio-card fade-in fade-in-delay-2">
           <div class="servicio-icon icon-medica">🩺</div>
           <h3>Atención médica</h3>
           <p>Jornadas de salud con médicos voluntarios. Chequeos generales, pediatría y desparasitación completamente gratuitos.</p>
+          <button class="btn-ver-mas" onclick="abrirGaleria(0)">📸 Ver más</button>
         </div>
         <div class="servicio-card fade-in fade-in-delay-3">
           <div class="servicio-icon icon-cabello">✂️</div>
           <h3>Cortes de cabello</h3>
           <p>Porque la dignidad también se refleja en la apariencia. Cortes de cabello gratuitos para que los niños se sientan bien consigo mismos.</p>
+          <button class="btn-ver-mas" onclick="abrirGaleria(0)">📸 Ver más</button>
         </div>
         <div class="servicio-card fade-in fade-in-delay-4">
           <div class="servicio-icon icon-medicina">💊</div>
           <h3>Medicina gratuita</h3>
           <p>Entregamos medicamentos esenciales a familias que no pueden costearlos. Salud es un derecho, no un privilegio.</p>
+          <button class="btn-ver-mas" onclick="abrirGaleria(0)">📸 Ver más</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARRUSEL DE IMÁGENES ===== -->
+  <section class="carrusel fade-in">
+    <div class="container">
+      <div class="carrusel-header">
+        <span class="section-tag carrusel-tag">📸 Galería</span>
+        <h2 class="section-title">Momentos que nos inspiran</h2>
+        <p class="section-subtitle" style="margin: 12px auto 0;">
+          Cada imagen refleja el amor y la esperanza que compartimos con los niños
+        </p>
+      </div>
+      <div class="carrusel-track-wrapper">
+        <button class="carrusel-arrow carrusel-arrow-left" onclick="moverCarrusel(-1)">‹</button>
+        <div class="carrusel-track" id="carruselTrack"></div>
+        <button class="carrusel-arrow carrusel-arrow-right" onclick="moverCarrusel(1)">›</button>
       </div>
     </div>
   </section>
@@ -922,7 +1171,113 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
+    // ===== CONFIGURACIÓN DE IMÁGENES =====
+    const imagenes = [
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.15 PM.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.16 PM.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.18 PM.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.19 PM.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.19 PM1.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.19 PM2.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.21 PM3.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.21 PM4.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.22 PM.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.22 PM5.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.23 PM.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.23 PM3.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.23 PM6.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.23 PMus.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.24 PM,kj.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.24 PM,nb.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.24 PMhg.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.24 PMjh.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.24 PMkh.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.25 PM,j.jpeg",
+      "Nueva carpeta/WhatsApp Image 2026-05-22 at 10.36.25 PMmn.jpeg"
+    ];
+
+    // ===== VARIABLES DE ESTADO =====
+    let indiceActual = 0;
+    let autoPlayInterval = null;
+
+    // ===== CARRUSEL =====
+    function iniciarCarrusel() {
+      const track = document.getElementById('carruselTrack');
+      if (!track) return;
+
+      // Generar slides (orden aleatorio para variedad)
+      const shuffled = [...imagenes].sort(() => Math.random() - 0.5);
+      
+      shuffled.forEach((src, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'carrusel-slide';
+        slide.innerHTML = `<img src="${src}" alt="Galería FestiKids ${i+1}" loading="lazy">`;
+        slide.addEventListener('click', () => abrirGaleria(imagenes.indexOf(src)));
+        track.appendChild(slide);
+      });
+
+      // Auto-play: desplazar cada 3.5 segundos
+      autoPlayInterval = setInterval(() => {
+        track.scrollBy({ left: 296, behavior: 'smooth' });
+        // Si llegó al final, volver al inicio
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+          setTimeout(() => {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+          }, 500);
+        }
+      }, 3500);
+    }
+
+    function moverCarrusel(dir) {
+      const track = document.getElementById('carruselTrack');
+      if (!track) return;
+      track.scrollBy({ left: dir * 296, behavior: 'smooth' });
+    }
+
+    // ===== GALERÍA MODAL =====
+    function abrirGaleria(index) {
+      indiceActual = index;
+      const modal = document.getElementById('modalGaleria');
+      const img = document.getElementById('modalImg');
+      const counter = document.getElementById('modalCounter');
+      
+      img.src = imagenes[indiceActual];
+      actualizarContador();
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarGaleria() {
+      const modal = document.getElementById('modalGaleria');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function cerrarGaleriaFuera(e) {
+      if (e.target === e.currentTarget) cerrarGaleria();
+    }
+
+    function navegarGaleria(dir) {
+      indiceActual = (indiceActual + dir + imagenes.length) % imagenes.length;
+      document.getElementById('modalImg').src = imagenes[indiceActual];
+      actualizarContador();
+    }
+
+    function actualizarContador() {
+      document.getElementById('modalCounter').textContent = 
+        `${indiceActual + 1} / ${imagenes.length}`;
+    }
+
+    // Teclado: flechas y ESC
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('modalGaleria');
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') cerrarGaleria();
+      if (e.key === 'ArrowLeft') navegarGaleria(-1);
+      if (e.key === 'ArrowRight') navegarGaleria(1);
+    });
+
+    // ===== MENÚ MÓVIL =====
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     
@@ -930,20 +1285,19 @@
       navLinks.classList.toggle('open');
     });
 
-    // Close menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
       });
     });
 
-    // Header shadow on scroll
+    // ===== HEADER SHADOW =====
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // Intersection Observer for fade-in
+    // ===== FADE-IN OBSERVER =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -958,6 +1312,9 @@
         observer.observe(el);
       }
     });
+
+    // ===== INICIAR CARRUSEL AL CARGAR =====
+    document.addEventListener('DOMContentLoaded', iniciarCarrusel);
   </script>
 </body>
 </html>
