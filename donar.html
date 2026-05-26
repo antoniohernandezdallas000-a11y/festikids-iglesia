@@ -300,8 +300,8 @@
     .hero-donar {
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      padding: 120px 0 80px;
+      align-items: flex-start;
+      padding: 100px 0 60px;
       background: linear-gradient(160deg, rgba(255, 213, 79, 0.06) 0%, var(--white) 50%, var(--bg-light) 100%);
       position: relative;
       overflow: hidden;
@@ -475,14 +475,27 @@
       color: var(--red-dark);
     }
 
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      margin-top: 40px;
+    .benefits-track-wrapper {
+      max-width: 800px;
+      margin: 40px auto 0;
+      position: relative;
     }
 
+    .benefits-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 8px 4px;
+    }
+
+    .benefits-track::-webkit-scrollbar { display: none; }
+
     .benefit-item {
+      flex: 0 0 auto;
+      width: 340px;
       background: var(--white);
       padding: 28px 24px;
       border-radius: var(--radius-sm);
@@ -492,13 +505,54 @@
       gap: 16px;
       transition: var(--transition);
       border-left: 4px solid var(--primary);
+      cursor: pointer;
     }
 
-    .benefit-item:hover { transform: translateX(6px); box-shadow: var(--shadow-lg); }
+    .benefit-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
     .benefit-item .b-icon { font-size: 1.8rem; flex-shrink: 0; }
     .benefit-item h5 { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
     .benefit-item p { color: var(--text-mid); font-size: 0.9rem; margin-top: 4px; }
+
+    .benefits-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .benefits-arrow:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
+    .benefits-arrow-left { left: -10px; }
+    .benefits-arrow-right { right: -10px; }
+
+    .benefits-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .benefits-dots span {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--text-light);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .benefits-dots span.active { background: var(--primary); width: 24px; border-radius: 6px; }
 
     /* ===== CTA BOTTOM ===== */
     .cta-bottom {
@@ -603,7 +657,10 @@
       .section-title { font-size: 1.7rem; }
       .donation-card { padding: 32px 20px; }
       .btn-whatsapp-lg { font-size: 1.1rem; padding: 18px 32px; }
-      .benefits-grid { grid-template-columns: 1fr; }
+      .benefit-item { width: 280px; }
+      .benefits-arrow { width: 34px; height: 34px; font-size: 1rem; }
+      .benefits-arrow-left { left: -4px; }
+      .benefits-arrow-right { right: -4px; }
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -642,7 +699,7 @@
             el día más feliz de su <span class="highlight-blue">infancia</span>
           </h1>
           <p>
-            Queremos celebrar un día inolvidable para los niños de nuestra comunidad: 
+            Queremos celebrar tres días inolvidables para los niños de nuestra comunidad: 
             juegos, música, comida, regalos y mucho amor. Cada aporte, sin importar 
             su tamaño, se convierte en una sonrisa.
           </p>
@@ -651,7 +708,7 @@
             Tu empresa puede aparecer en nuestros agradecimientos y redes.
           </p>
         </div>
-        <div class="fade-in fade-in-delay-1" style="display:flex; flex-direction:column; gap:24px;">
+        <div class="fade-in fade-in-delay-1" style="display:flex; flex-direction:column;       gap:24px;">
           <div class="hero-video-wrapper">
             <video autoplay muted loop playsinline poster="logo-iglesia.jpg">
               <source src="WhatsApp Video 2026-05-19 at 10.12.17 PM.mp4" type="video/mp4">
@@ -667,6 +724,15 @@
               Escríbenos por WhatsApp y te contamos cómo puedes donar, 
               patrocinar o ser voluntario en esta actividad especial para los niños.
             </p>
+
+            <div style="background: var(--bg-light); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 20px; text-align: left; border: 1px solid rgba(79,195,247,0.15);">
+              <p style="font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; color: var(--text-dark);">🏦 Transferencia bancaria directa</p>
+              <p style="font-size: 0.88rem; color: var(--text-mid); margin-bottom: 4px;"><strong>Beneficiario:</strong> Fundación Ebenezer</p>
+              <p style="font-size: 0.88rem; color: var(--text-mid); margin-bottom: 4px;"><strong>RIF:</strong> J-408376725</p>
+              <p style="font-size: 0.88rem; color: var(--text-mid); margin-bottom: 4px;"><strong>Banco:</strong> Provincial · Código 0108</p>
+              <p style="font-size: 0.88rem; color: var(--text-mid);"><strong>Cuenta:</strong> 04267940694</p>
+            </div>
+
             <a href="https://wa.me/584128580894?text=quiero%20formar%20parte%20de%20festikids" 
                target="_blank" rel="noopener noreferrer" 
                class="btn btn-whatsapp btn-whatsapp-lg">
@@ -715,49 +781,54 @@
         <span class="section-tag benefits-tag">🌟 Tu aporte cuenta</span>
         <h2 class="section-title">¿Qué logramos con tu ayuda?</h2>
       </div>
-      <div class="benefits-grid">
-        <div class="benefit-item fade-in fade-in-delay-1">
-          <span class="b-icon">🎪</span>
-          <div>
-            <h5>Juegos y actividades</h5>
-            <p>Inflables, pintacaritas, competencias y estaciones de juego para que los niños disfruten al máximo.</p>
+      <div class="benefits-track-wrapper">
+        <button class="benefits-arrow benefits-arrow-left" onclick="moverBenefits(-1)">‹</button>
+        <div class="benefits-track" id="benefitsTrack">
+          <div class="benefit-item">
+            <span class="b-icon">🎪</span>
+            <div>
+              <h5>Juegos y actividades</h5>
+              <p>Inflables, pintacaritas, competencias y estaciones de juego para que los niños disfruten al máximo.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="b-icon">🍿</span>
+            <div>
+              <h5>Comida y dulces</h5>
+              <p>Un festival no está completo sin algo rico. Ayúdanos a darles una merienda especial que recordarán.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="b-icon">🎁</span>
+            <div>
+              <h5>Regalos y sorpresas</h5>
+              <p>Cada niño merece llevarse un detalle a casa. Con tu donación podemos entregar juguetes y útiles.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="b-icon">👕</span>
+            <div>
+              <h5>Ropa y calzado</h5>
+              <p>Muchos niños asisten con lo puesto. Queremos entregarles mudas nuevas y zapatos.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="b-icon">🎵</span>
+            <div>
+              <h5>Música y alegría</h5>
+              <p>Contrataremos sonido, animadores y un show infantil. Todo para que sea un día épico.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="b-icon">💊</span>
+            <div>
+              <h5>Medicinas y salud</h5>
+              <p>Parte de los fondos también se destinan a continuar con la atención médica y medicinas que tanto necesitan.</p>
+            </div>
           </div>
         </div>
-        <div class="benefit-item fade-in fade-in-delay-1">
-          <span class="b-icon">🍿</span>
-          <div>
-            <h5>Comida y dulces</h5>
-            <p>Un festival no está completo sin algo rico. Ayúdanos a darles una merienda especial que recordarán.</p>
-          </div>
-        </div>
-        <div class="benefit-item fade-in fade-in-delay-2">
-          <span class="b-icon">🎁</span>
-          <div>
-            <h5>Regalos y sorpresas</h5>
-            <p>Cada niño merece llevarse un detalle a casa. Con tu donación podemos entregar juguetes y útiles.</p>
-          </div>
-        </div>
-        <div class="benefit-item fade-in fade-in-delay-2">
-          <span class="b-icon">👕</span>
-          <div>
-            <h5>Ropa y calzado</h5>
-            <p>Muchos niños asisten con lo puesto. Queremos entregarles mudas nuevas y zapatos.</p>
-          </div>
-        </div>
-        <div class="benefit-item fade-in fade-in-delay-3">
-          <span class="b-icon">🎵</span>
-          <div>
-            <h5>Música y alegría</h5>
-            <p>Contrataremos sonido, animadores y un show infantil. Todo para que sea un día épico.</p>
-          </div>
-        </div>
-        <div class="benefit-item fade-in fade-in-delay-3">
-          <span class="b-icon">💊</span>
-          <div>
-            <h5>Medicinas y salud</h5>
-            <p>Parte de los fondos también se destinan a continuar con la atención médica y medicinas que tanto necesitan.</p>
-          </div>
-        </div>
+        <button class="benefits-arrow benefits-arrow-right" onclick="moverBenefits(1)">›</button>
+        <div class="benefits-dots" id="benefitsDots"></div>
       </div>
     </div>
   </section>
@@ -808,13 +879,59 @@
   </footer>
 
   <script>
-    // Header shadow on scroll
+    // ===== BENEFITS CARRUSEL =====
+    function iniciarBenefitsCarrusel() {
+      const track = document.getElementById('benefitsTrack');
+      const dots = document.getElementById('benefitsDots');
+      if (!track) return;
+
+      const items = track.querySelectorAll('.benefit-item');
+      const total = items.length;
+
+      // Crear dots
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('span');
+        dot.addEventListener('click', () => {
+          track.scrollTo({ left: i * 360, behavior: 'smooth' });
+          actualizarDot(i);
+        });
+        dots.appendChild(dot);
+      }
+
+      function actualizarDot(activo) {
+        dots.querySelectorAll('span').forEach((d, i) => {
+          d.classList.toggle('active', i === activo);
+        });
+      }
+
+      track.addEventListener('scroll', () => {
+        const idx = Math.round(track.scrollLeft / 360);
+        actualizarDot(Math.min(idx, total - 1));
+      });
+
+      actualizarDot(0);
+
+      // Auto-play cada 4 segundos
+      let autoIndex = 0;
+      setInterval(() => {
+        autoIndex = (autoIndex + 1) % total;
+        track.scrollTo({ left: autoIndex * 360, behavior: 'smooth' });
+      }, 4000);
+    }
+
+    function moverBenefits(dir) {
+      const track = document.getElementById('benefitsTrack');
+      if (!track) return;
+      track.scrollBy({ left: dir * 360, behavior: 'smooth' });
+    }
+
+    // ===== HEADER SHADOW =====
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // Intersection Observer for fade-in
+    // ===== FADE-IN OBSERVER =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -829,6 +946,9 @@
         observer.observe(el);
       }
     });
+
+    // ===== INICIAR CARRUSEL AL CARGAR =====
+    document.addEventListener('DOMContentLoaded', iniciarBenefitsCarrusel);
   </script>
 </body>
 </html>
